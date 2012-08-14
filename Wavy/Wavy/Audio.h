@@ -25,7 +25,8 @@ public:
     void callback( Float32 * buffer, UInt32 numFrames, void * userData );
     
     void play();
-    void record();
+    void recordStart();
+    void recordStop();
     
 private:
     
@@ -36,6 +37,7 @@ private:
     
     stk::FileWvOut m_fileOut;
     bool m_isRecording;
+    bool m_doPlay;
 };
 
 

@@ -45,9 +45,14 @@
     audio->play();
 }
 
-- (IBAction)record:(id)sender
+- (IBAction)recordStart:(id)sender
 {
-    audio->record();
+    audio->recordStart();
+}
+
+- (IBAction)recordStop:(id)sender
+{
+    audio->recordStop();
 }
 
 @end

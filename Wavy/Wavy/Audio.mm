@@ -18,21 +18,9 @@ void g_callback( Float32 * buffer, UInt32 numFrames, void * userData )
 {
     Audio * audio = (Audio *) userData;
     
-    audio->callback(buffer, numFrames, userData);
-}
-
-
-void Audio::play()
-{
-    m_isRecording = false;
-    m_fileOut.closeFile();
-    m_fileIn.openFile(stlDocumentsFilepath("tmpfile.wav"));
-}
-
-void Audio::record()
-{
-    m_isRecording = true;
-    m_fileOut.openFile(stlDocumentsFilepath("tmpfile.wav"), 1, stk::FileWrite::FILE_WAV, stk::Stk::STK_FLOAT32);
+    @autoreleasepool {
+        audio->callback(buffer, numFrames, userData);
+    }
 }
 
 
@@ -42,6 +30,7 @@ Audio::Audio()
     MoAudio::start(g_callback, this);
     
     m_isRecording = false;
+    m_doPlay = false;
     
     m_fileOutBuffer = new CircularBuffer<float>(BUFFER_SIZE*10);
 }
@@ -51,8 +40,35 @@ Audio::~Audio()
     
 }
 
+void Audio::play()
+{
+    recordStop();
+    
+    m_doPlay = true;
+}
+
+void Audio::recordStart()
+{
+    m_doPlay = false;
+    
+    m_isRecording = true;
+    m_fileOut.openFile(stlDocumentsFilepath("tmpfile.wav"), 1, stk::FileWrite::FILE_WAV, stk::Stk::STK_FLOAT32);
+}
+
+void Audio::recordStop()
+{
+    m_isRecording = false;
+    m_fileOut.closeFile();
+}
+
 void Audio::callback( Float32 * buffer, UInt32 numFrames, void * userData )
 {
+    if(m_doPlay)
+    {
+        m_doPlay = false;
+        m_fileIn.openFile(stlDocumentsFilepath("tmpfile.wav"));
+        m_fileIn.setRate(0.5);
+    }
     
     for(int i = 0; i < numFrames; i++)
     {

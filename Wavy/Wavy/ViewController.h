@@ -11,6 +11,8 @@
 @interface ViewController : UIViewController
 
 - (IBAction)play:(id)sender;
-- (IBAction)record:(id)sender;
+
+- (IBAction)recordStart:(id)sender;
+- (IBAction)recordStop:(id)sender;
 
 @end
