@@ -12,4 +12,7 @@
 
 - (IBAction)changeFreq:(id)slider;
 
+- (IBAction)noteOn:(id)sender;
+- (IBAction)noteOff:(id)sender;
+
 @end

@@ -44,9 +44,20 @@
 - (IBAction)changeFreq:(id)sender
 {
     UISlider * slider = (UISlider *)sender;
-    audio->setFreq(220+slider.value*220);
+//    audio->setFreq(220+slider.value*220);
+//    audio->setRelease(slider.value);
+    audio->setCutoff(110+slider.value*880);
 }
 
+- (IBAction)noteOn:(id)sender
+{
+    audio->noteOn();
+}
+
+- (IBAction)noteOff:(id)sender
+{
+    audio->noteOff();
+}
 
 
 
