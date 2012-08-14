@@ -23,9 +23,7 @@
 		09DE545215DACE39007027CC /* SKINI.msg in Resources */ = {isa = PBXBuildFile; fileRef = 09DE543A15DACE39007027CC /* SKINI.msg */; };
 		09DE545315DACE39007027CC /* SKINI.tbl in Resources */ = {isa = PBXBuildFile; fileRef = 09DE543B15DACE39007027CC /* SKINI.tbl */; };
 		09DE545415DACE39007027CC /* libstk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09DE545115DACE39007027CC /* libstk.a */; };
-		09DE545615DACF36007027CC /* Shawtay1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09DE545515DACF36007027CC /* Shawtay1.wav */; };
 		09DE545915DAD0EC007027CC /* rabbit.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09DE545815DAD0EC007027CC /* rabbit.jpeg */; };
-		09DE545B15DAD1DF007027CC /* YeahYeahYeah.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09DE545A15DAD1DF007027CC /* YeahYeahYeah.wav */; };
 		09DE545D15DAD25B007027CC /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 09DE545C15DAD25B007027CC /* cat.jpeg */; };
 /* End PBXBuildFile section */
 
@@ -154,10 +152,8 @@
 		09DE544E15DACE39007027CC /* WvIn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WvIn.h; sourceTree = "<group>"; };
 		09DE544F15DACE39007027CC /* WvOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WvOut.h; sourceTree = "<group>"; };
 		09DE545115DACE39007027CC /* libstk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libstk.a; sourceTree = "<group>"; };
-		09DE545515DACF36007027CC /* Shawtay1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Shawtay1.wav; sourceTree = "<group>"; };
 		09DE545715DACFCD007027CC /* Filepaths.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Filepaths.h; sourceTree = "<group>"; };
 		09DE545815DAD0EC007027CC /* rabbit.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rabbit.jpeg; sourceTree = "<group>"; };
-		09DE545A15DAD1DF007027CC /* YeahYeahYeah.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = YeahYeahYeah.wav; sourceTree = "<group>"; };
 		09DE545C15DAD25B007027CC /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 		09DE545E15DAD96E007027CC /* CircularBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircularBuffer.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,10 +209,8 @@
 			children = (
 				09DE545E15DAD96E007027CC /* CircularBuffer.h */,
 				09DE545C15DAD25B007027CC /* cat.jpeg */,
-				09DE545A15DAD1DF007027CC /* YeahYeahYeah.wav */,
 				09DE545815DAD0EC007027CC /* rabbit.jpeg */,
 				09DE545715DACFCD007027CC /* Filepaths.h */,
-				09DE545515DACF36007027CC /* Shawtay1.wav */,
 				09DE53E815DACE39007027CC /* stk */,
 				09DE53E015DACE20007027CC /* Audio.mm */,
 				09DE53E115DACE20007027CC /* Audio.h */,
@@ -428,9 +422,7 @@
 				09DE53D215DACDD0007027CC /* ViewController_iPad.xib in Resources */,
 				09DE545215DACE39007027CC /* SKINI.msg in Resources */,
 				09DE545315DACE39007027CC /* SKINI.tbl in Resources */,
-				09DE545615DACF36007027CC /* Shawtay1.wav in Resources */,
 				09DE545915DAD0EC007027CC /* rabbit.jpeg in Resources */,
-				09DE545B15DAD1DF007027CC /* YeahYeahYeah.wav in Resources */,
 				09DE545D15DAD25B007027CC /* cat.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
