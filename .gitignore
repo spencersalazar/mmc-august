@@ -8,8 +8,6 @@ build/*
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-MobileMusic.xcodeproj/project.xcworkspace
-MinimalMusic.xcodeproj/project.xcworkspace
 !default.xcworkspace
 !default.xcworkspace
 xcuserdata
@@ -17,4 +15,7 @@ profile
 *.moved-aside
 .DS_Store
 
-MobileMusic.xcodeproj/project.pbxproj.orig
+OSC.xcodeproj/project.xcworkspace
+Wavy.xcodeproj/project.xcworkspace
+Flarey.xcodeproj/project.pbxproj.orig
+Complication.xcodeproj/project.xcworkspace
