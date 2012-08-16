@@ -1,0 +1,15 @@
+= mmc-august
+<em>Code from the Music and Mobile Computing Workshop at CCRMA - August 2012</em>
+
+== MAIN FEATURES
+This repository contains a few separate projects that were created during the workshop:
+1. Complication
+2. Wavy
+3. Flarey
+4. OSC - this covers sending/receiving OSC messages in both iOS and ChucK
+
+== GETTING STARTED
+1. Clone (or fork and clone) this repository and open up the desired project in Xcode.
+2. Compile and run on the iOS simulator or your iOS device.
+
+== MORE INFO
