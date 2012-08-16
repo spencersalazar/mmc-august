@@ -215,17 +215,25 @@
 		4D5B9A3015DD6E590086716D /* OSC */ = {
 			isa = PBXGroup;
 			children = (
+				4D5B9A5B15DD71960086716D /* Supporting Files */,
 				4D5B9A3115DD6E590086716D /* AppDelegate.h */,
 				4D5B9A3215DD6E590086716D /* AppDelegate.m */,
-				4D5B9A3315DD6E590086716D /* InfoPlist.strings */,
-				4D5B9A3715DD6E590086716D /* main.m */,
-				4D5B9A3815DD6E590086716D /* OSC-Info.plist */,
-				4D5B9A3915DD6E590086716D /* OSC-Prefix.pch */,
 				4D5B9A3A15DD6E590086716D /* ViewController.h */,
 				4D5B9A3B15DD6E590086716D /* ViewController.m */,
 				4D5B9A3515DD6E590086716D /* ViewController.xib */,
 			);
 			path = OSC;
+			sourceTree = "<group>";
+		};
+		4D5B9A5B15DD71960086716D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D5B9A3315DD6E590086716D /* InfoPlist.strings */,
+				4D5B9A3715DD6E590086716D /* main.m */,
+				4D5B9A3815DD6E590086716D /* OSC-Info.plist */,
+				4D5B9A3915DD6E590086716D /* OSC-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
