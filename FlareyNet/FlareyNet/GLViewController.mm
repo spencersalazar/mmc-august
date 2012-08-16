@@ -374,69 +374,69 @@ GLvertex2f uiview2gl(CGPoint p, UIView * view)
 
 - (void)receivedOSCMessage:(OSCMessage *)msg
 {
-    NSLog(@"I received a message!");
-    
-    if([[msg address] isEqualToString:@"/flarey/begin i f f"])
-    {
-        int flareId = [[msg valueAtIndex:0] intValue];
-        float flareX = [[msg valueAtIndex:1] floatValue];
-        float flareY = [[msg valueAtIndex:2] floatValue];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"I received a message!");
         
-        HoffGfx * theHoff = new HoffGfx;
-        theHoff->position = GLvertex2f(flareX, flareY);
-        theHoff->c = GLcolor4f(1, 1, 1, 1);
-        theHoff->scale = 1;
-        theHoff->tex = tex;
-        theHoff->time = 0;
-        
-        HoffAudio * hoffAudio = new HoffAudio;
-        hoffAudio->init();
-        theHoff->hoffAudio = hoffAudio;
-        hoffAudio->noteOn();
-        hoffAudio->setFreq(440+220*flareX);
-        hoffAudio->setCutoff(660+440*flareY);
-        
-        audio->addHoffAudio(hoffAudio);
-        
-        remoteHoffs[flareId] = theHoff;
-    }
-    if([[msg address] isEqualToString:@"/flarey/move i f f"])
-    {
-        int flareId = [[msg valueAtIndex:0] intValue];
-        float flareX = [[msg valueAtIndex:1] floatValue];
-        float flareY = [[msg valueAtIndex:2] floatValue];
-        
-        if(remoteHoffs.find(flareId) != remoteHoffs.end())
+        if([[msg address] isEqualToString:@"/flarey/begin i f f"])
         {
-            HoffGfx * theHoff = remoteHoffs[flareId];
+            int flareId = [[msg valueAtIndex:0] intValue];
+            float flareX = [[msg valueAtIndex:1] floatValue];
+            float flareY = [[msg valueAtIndex:2] floatValue];
+            
+            HoffGfx * theHoff = new HoffGfx;
             theHoff->position = GLvertex2f(flareX, flareY);
+            theHoff->c = GLcolor4f(1, 1, 1, 1);
+            theHoff->scale = 1;
+            theHoff->tex = tex;
+            theHoff->time = 0;
             
-            HoffAudio * hoffAudio = theHoff->hoffAudio;
-            
+            HoffAudio * hoffAudio = new HoffAudio;
+            hoffAudio->init();
+            theHoff->hoffAudio = hoffAudio;
             hoffAudio->noteOn();
             hoffAudio->setFreq(440+220*flareX);
             hoffAudio->setCutoff(660+440*flareY);
+            
+            audio->addHoffAudio(hoffAudio);
+            
+            remoteHoffs[flareId] = theHoff;
         }
-    }
-    if([[msg address] isEqualToString:@"/flarey/end i"])
-    {
-        int flareId = [[msg valueAtIndex:0] intValue];
-        
-        if(remoteHoffs.find(flareId) != remoteHoffs.end())
+        if([[msg address] isEqualToString:@"/flarey/move i f f"])
         {
-            HoffGfx * theHoff = remoteHoffs[flareId];
+            int flareId = [[msg valueAtIndex:0] intValue];
+            float flareX = [[msg valueAtIndex:1] floatValue];
+            float flareY = [[msg valueAtIndex:2] floatValue];
             
-            HoffAudio * hoffAudio = theHoff->hoffAudio;
-            hoffAudio->noteOff();
-            
-            audio->removeHoffAudio(hoffAudio);
-            
-            remoteHoffs.erase(flareId);
-            delete theHoff;
+            if(remoteHoffs.find(flareId) != remoteHoffs.end())
+            {
+                HoffGfx * theHoff = remoteHoffs[flareId];
+                theHoff->position = GLvertex2f(flareX, flareY);
+                
+                HoffAudio * hoffAudio = theHoff->hoffAudio;
+                
+                hoffAudio->noteOn();
+                hoffAudio->setFreq(440+220*flareX);
+                hoffAudio->setCutoff(660+440*flareY);
+            }
         }
-    }
+        if([[msg address] isEqualToString:@"/flarey/end i"])
+        {
+            int flareId = [[msg valueAtIndex:0] intValue];
+            
+            if(remoteHoffs.find(flareId) != remoteHoffs.end())
+            {
+                HoffGfx * theHoff = remoteHoffs[flareId];
+                
+                HoffAudio * hoffAudio = theHoff->hoffAudio;
+                hoffAudio->noteOff();
+                
+                audio->removeHoffAudio(hoffAudio);
+                
+                remoteHoffs.erase(flareId);
+                delete theHoff;
+            }
+        }
+    });
 }
-
-
 
 @end
