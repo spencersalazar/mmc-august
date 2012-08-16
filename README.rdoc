@@ -7,6 +7,7 @@ This repository contains a few separate projects that were created during the wo
 2. Wavy
 3. Flarey
 4. OSC - this covers sending/receiving OSC messages in both iOS and ChucK
+5. FlareyNet - Flarey that is OSC-enabled to communicate between devices
 
 == GETTING STARTED
 1. Clone (or fork and clone) this repository and open up the desired project in Xcode.
