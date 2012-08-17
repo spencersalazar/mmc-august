@@ -16,7 +16,6 @@
 #include <list>
 #include "CircularBuffer.h"
 
-
 class HoffAudio
 {
 private:
@@ -56,6 +55,8 @@ public:
     
     void updateControl();
     float tick();
+    
+    bool isFinished() { return m_adsr.lastOut() < 0.001; }
 };
 
 
@@ -76,6 +77,7 @@ private:
     CircularBuffer<HoffAudio *> * m_removeList;
     
     std::list<HoffAudio *> m_hoffs;
+    std::list<HoffAudio *> m_hoffsToRemove;
 };
 
 

@@ -131,12 +131,28 @@ void Audio::callback( Float32 * buffer, UInt32 numFrames, void * userData )
     while(m_removeList->get(ha))
     {
         m_hoffs.remove(ha);
-        delete ha;
+//        delete ha;
+        m_hoffsToRemove.push_back(ha);
     }
     
     for(std::list<HoffAudio *>::iterator i = m_hoffs.begin();
         i != m_hoffs.end(); i++)
         (*i)->updateControl();
+    
+    for(std::list<HoffAudio *>::iterator i = m_hoffsToRemove.begin();
+        i != m_hoffsToRemove.end(); )
+    {
+        (*i)->updateControl();
+        if((*i)->isFinished())
+        {
+            std::list<HoffAudio *>::iterator r = i;
+            i++;
+            m_hoffsToRemove.erase(r);
+            delete *r;
+        }
+        else
+            i++;
+    }
     
     for(int i = 0; i < numFrames; i++)
     {
@@ -144,6 +160,10 @@ void Audio::callback( Float32 * buffer, UInt32 numFrames, void * userData )
         
         for(std::list<HoffAudio *>::iterator i = m_hoffs.begin();
             i != m_hoffs.end(); i++)
+            sample += (*i)->tick();
+        
+        for(std::list<HoffAudio *>::iterator i = m_hoffsToRemove.begin();
+            i != m_hoffsToRemove.end(); i++)
             sample += (*i)->tick();
         
         buffer[i*2] = sample;
